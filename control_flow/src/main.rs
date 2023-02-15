@@ -65,13 +65,25 @@
 // }
 
 //一组常用的combo是 _ => ()   使用通配符完成match语句的穷举要求，再通过空元组处理。 “你完成了一套很牛逼的combo，但是无事发生。”
-fn main() {
-    let dice_roll = 9;
-    match dice_roll {
-        3 => add_fancy_hat(),
-        7 => remove_fancy_hat(),
-        _ => (),
-    }
-    fn add_fancy_hat() {}
-    fn remove_fancy_hat() {}
+// fn main() {
+//     let dice_roll = 9;
+//     match dice_roll {
+//         3 => add_fancy_hat(),
+//         7 => remove_fancy_hat(),
+//         _ => (),
+//     }
+//     fn add_fancy_hat() {}
+//     fn remove_fancy_hat() {}
+// }
+
+
+//当情况分支很多时，即使是match语句也会显得有点烦。这时候你可以尝试使用if let
+fn main(){
+     let config_max = Some(3u8);
+     //只有当Some(max)为某项值时，我们才会执行某些语句，其他情况我们就不管啦
+     // 使用if let语法，可以避开match的穷尽性要求。你可以认为if let是match的某种语法糖
+     if let Some(max) = config_max {
+          println!("The maximum is configured to be {}", max);
+     } 
+     //如果你需要的话，你可以使用else来代替“很牛逼的combo”，不过这种情况并不常见        
 }
