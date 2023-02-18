@@ -153,9 +153,10 @@ fn main() {
 //听起来是和js里面的map有些相似，但是js的map可没有k，只有v。
 // 类似于 vector，哈希 map 是同质的：所有的键必须是相同类型，值也必须都是相同类型。
 
+//HassMap 1
+/*
 fn main() {
     use std::collections::HashMap; //用于hashMap不常用，所以它并没有像前两者那样被自动引入，我们需要手动添加它
-
     // //new一个新的hashmap并使用insert增加元素
     // let mut scores = HashMap::new();//依然是由于HashMap不常用，所以我们只能通过new的方式来创建，暂时没有字面量的宏创建形式
     // scores.insert(String::from("Blue"), 10);
@@ -179,6 +180,102 @@ fn main() {
     // println!("{:?}",v );//获取的值是一个Option   这行代码打印的：Some("Blue")
 
     //遍历map中的元素
-    
+    let mut scores = HashMap::new();
+    scores.insert(String::from("blue"),50);
+    scores.insert(String::from("red"),10);
+
+    for (k,v) in &scores{
+        println!(" {} : {}",k,v );
+    }
 
 }
+*/
+
+//HashMap 2
+/* 
+fn main() {
+    use std::collections::HashMap;
+    // let mut scores = HashMap::new();
+
+    // //1.已存在对应的k:v时
+    // scores.insert(String::from("Blue"), 10);
+    // scores.insert(String::from("Blue"), 25);
+    // //直接重新插入，会覆盖新值
+    // println!("{:?}",scores );
+
+    // //2.检查是否有值，若没有则插入
+    // scores.insert(String::from("Blue"), 10);
+    // scores.entry(String::from("red")).or_insert(50);//使用entry检查是否有值，再使用or_insert根据其返回值是否插入
+    // scores.entry(String::from("Blue")).or_insert(20);//检查有值，则不会去替换已有的值
+    // println!("{:?}",scores );
+
+    let text = "hello world wonderful world wonderful world ttt mmmm nnnn";
+    let mut map = HashMap::new();
+
+    //正常情况下，你可以用直接修改一个整数，因为他们是存在stock里面的简单数据结构
+    // let mut x =1 ;
+    // x += 1;
+    // print!("{x}", );
+
+    for word in text.split_whitespace(){//将text根据空格分隔
+        let mut zmm = map.entry(word).or_insert(0);//返回值是某种代表v的东西，但是不能直接操作这个返回值，否则就会出现如下错误
+        // zmm += 2;//error: binary assignment operation `+=` cannot be applied to type `&mut {integer}`
+        *zmm += 1;// 使用*来解引用，此时在每次for循环的代码块中，每个zum的引用的*zum是不同的
+                  // 即同一个stock中的zum对应heap中的不同空间，每次for循环的独立代码块都会让指针移动，并指向不同的heap空间 
+        println!("* : {:?}",*zmm);   
+    }
+
+    print!("{:?}",map );//通过解引用来让每次的for循环产生对应的效果，并将这种效果记录下来
+}
+*/
+
+//practice 1 ： 给定一系列数字，返回这个列表的中位数和众数和平均数
+/* */
+fn main(){
+    let mut input = vec![65,64,56,62,21,35,58,41,25,65,35,88,25,46,51,36,52,12,54,66,55,56,56];
+   
+    println!("the average of input is {}", average(&input));
+    println!("the median of input is {}", median(&mut input));
+    println!("the mode of input is {}", mode(&input));
+}
+
+fn average(input:&Vec<u16>) -> f32{
+    let mut a:u16 = 0;
+    for num in input{
+        a += num;//如果给u8，此处的a会overflow
+    }
+    a as f32 / input.len() as f32//此处需要重新设定数据类型
+}
+
+fn median(input:&mut Vec<u16>) -> f32{//当不能去到中间位置时，需要取中间两个数的平均数作为中位数
+    input.sort();
+    let len = input.len();
+    if len % 2 ==0 {
+        //被2整除时，取中间两位的平均数
+        return (input[len / 2 ] as f32 + input[len / 2 +1] as f32) / (2 as f32)
+    }
+    //否则返回中间位即可
+    input[len / 2] as f32
+}
+
+fn mode(input:&Vec<u16>) -> u16{
+    use std::collections::HashMap;
+    let mut input_map:HashMap<u16,i32> = HashMap::new();
+
+    for &i in input{
+        let count = input_map.entry(i).or_insert(0);
+        *count += 1;
+    }
+
+    let mut num_timers = (0, 0);
+    for (k, v) in &input_map {//对map进行迭代，要么用HashMap的引用值，要么用iter()处理一下
+        if *v > num_timers.1 {
+            // num_timers[1] = *v;//error: cannot index into a value of type `({integer}, i32)`
+            num_timers.1 = *v;
+            num_timers.0 = *k;
+        }
+    }
+
+    return num_timers.0;
+}
+
