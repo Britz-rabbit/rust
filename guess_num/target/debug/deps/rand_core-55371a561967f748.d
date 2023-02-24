@@ -1,0 +1,9 @@
+c:\Users\26246\Desktop\rust\cargo_hello_world\guess_num\target\debug\deps\rand_core-55371a561967f748.rmeta: C:\Users\26246\.cargo\registry\src\mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd\rand_core-0.4.2\src\lib.rs C:\Users\26246\.cargo\registry\src\mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd\rand_core-0.4.2\src\error.rs C:\Users\26246\.cargo\registry\src\mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd\rand_core-0.4.2\src\block.rs C:\Users\26246\.cargo\registry\src\mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd\rand_core-0.4.2\src\impls.rs C:\Users\26246\.cargo\registry\src\mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd\rand_core-0.4.2\src\le.rs
+
+c:\Users\26246\Desktop\rust\cargo_hello_world\guess_num\target\debug\deps\rand_core-55371a561967f748.d: C:\Users\26246\.cargo\registry\src\mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd\rand_core-0.4.2\src\lib.rs C:\Users\26246\.cargo\registry\src\mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd\rand_core-0.4.2\src\error.rs C:\Users\26246\.cargo\registry\src\mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd\rand_core-0.4.2\src\block.rs C:\Users\26246\.cargo\registry\src\mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd\rand_core-0.4.2\src\impls.rs C:\Users\26246\.cargo\registry\src\mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd\rand_core-0.4.2\src\le.rs
+
+C:\Users\26246\.cargo\registry\src\mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd\rand_core-0.4.2\src\lib.rs:
+C:\Users\26246\.cargo\registry\src\mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd\rand_core-0.4.2\src\error.rs:
+C:\Users\26246\.cargo\registry\src\mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd\rand_core-0.4.2\src\block.rs:
+C:\Users\26246\.cargo\registry\src\mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd\rand_core-0.4.2\src\impls.rs:
+C:\Users\26246\.cargo\registry\src\mirrors.tuna.tsinghua.edu.cn-df7c3c540f42cdbd\rand_core-0.4.2\src\le.rs:

@@ -164,7 +164,21 @@ fn read_username_from_file() -> Result<String, io::Error> {//跑通的话，就�
 // }
 
 use std::error::Error;
-fn main() -> Result<(), Box<dyn Error>> {
-    let f = File::open("hello.txt")?;
-    Ok(())
+
+fn main() -> Result<(), Box<dyn Error>>{
+    let f = File::open("hello.txt");//如果打开失败，返回Box的一个数据结构（这是一个trait），可大致被理解为“任何类型的错误”
+    Ok(())//如果能执行到这一步，说明上面的代码执行成功了，则返回空元组
 }
+
+
+//防止panic!的滥用
+//很多panic的调用都可以通过result或其语法糖来实现，不过这样处理也就相当于隐藏起来了可能的错误，调用者可能并不知道这里的风险
+//result的调用场景是一些可能会失败的函数，或者使用unwrap或except来处理panic
+//当你在做测试，示例代码或者编译的时候，直接panic出去或许是一个更好的选择
+
+// 函数通常都遵循 契约（contracts）：
+// 他们的行为只有在输入满足特定条件时才能得到保证。当违反契约时 panic 是有道理的，因为这通常代表调用方的bug，
+// 而且这也不是那种你希望所调用的代码必须处理的错误。事实上所调用的代码也没有合理的方式
+// 来恢复，而是需要调用方的 程序员修复其代码。函数的契约，尤其是当违反它会造成 panic 的契约，应该在函数的 API 文档中得到解释。
+
+
