@@ -1,7 +1,7 @@
 //三个在rust被广泛使用的集合是vector， string， hash map
 
 //vector 1
-/*
+///* 
 fn main() {
 // let v:Vec<i32> = Vec::new();//使用Vec加泛型，通过Vec::new()来创建一个空泛型
 let mut v = vec![1, 2, 3]; //或者使用vec![]的宏来快速创建
@@ -22,10 +22,10 @@ match v.get(2) {
 }
 //区别在于，直接访问索引出些错误时，会使rust panic；而第二种则会返回一个Option的None，并进行处理
 
-let mut v = vec![1, 2, 3, 4, 5];
-let mut first = &mut v[0];
-v.push(6);
-println!("The first element is: {}", first);
+// let mut v = vec![1, 2, 3, 4, 5];
+// let mut first = &mut v[0];
+// v.push(6);
+// println!("The first element is: {}", first);
 // 为什么第一个元素的引用会关心 vector 结尾的变化？不能这么
 // 做的原因是由于 vector 的工作方式：在 vector 的结尾增加新元素时，在没有足够空间将所有元素依次
 // 相邻存放的情况下，可能会要求分配新内存并将老的元素拷贝到新的空间中。这时，第一个元素的引用
@@ -38,7 +38,7 @@ for i in &mut v{//使用&mut 来修改vector中的值
 }
 println!("{:?}",&v );
 } //离开作用于后，v会被释放
-*/
+//*/
 
 //vector 2
 /*
@@ -230,7 +230,7 @@ fn main() {
 */
 
 //practice 1 ： 给定一系列数字，返回这个列表的中位数和众数和平均数
-/* */
+/* 
 fn main(){
     let mut input = vec![65,64,56,62,21,35,58,41,25,65,35,88,25,46,51,36,52,12,54,66,55,56,56];
    
@@ -278,4 +278,4 @@ fn mode(input:&Vec<u16>) -> u16{
 
     return num_timers.0;
 }
-
+*/
